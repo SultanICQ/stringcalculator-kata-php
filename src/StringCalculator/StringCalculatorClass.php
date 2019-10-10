@@ -6,7 +6,11 @@ class StringCalculatorClass
 {
     public function Add(string $string):Int
     {
-        if ( $string == "1,2" ) { return 3; }
-        return (int)$string;
+        $values = explode(",", $string );
+        $sum = 0;
+        foreach( $values as $num ) {
+            $sum+=(int)$num;
+        }
+        return $sum;
     }
 }
