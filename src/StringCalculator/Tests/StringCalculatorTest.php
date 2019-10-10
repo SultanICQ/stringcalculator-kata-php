@@ -26,7 +26,6 @@ class StringCalculatorTest extends TestCase
         $this->assertIsInt($sum);
         $this->assertSame(0, $sum);
     }
-
     public function test_when_i_send_a_string_with_the_number_one_calc_returns_the_same_number_as_int() {
 
         $sum = $this->calc->Add("1");
@@ -41,6 +40,27 @@ class StringCalculatorTest extends TestCase
 
         $this->assertIsInt( $sum );
         $this->assertSame( 2, $sum );
+    }
+
+    /**
+     * @dataProvider single_number_provider
+     * @param String $argument
+     * @param Int $expected
+     */
+    public function test_when_i_send_empty_or_single_arguments_calc_returns_valid_int( $argument, $expected ) {
+
+        $sum = $this->calc->Add( $argument );
+
+        $this->assertSame( $expected, $sum );
+    }
+
+    public function single_number_provider() {
+        return [
+            ["", 0],
+            ["0", 0],
+            ["1", 1],
+            ["2", 2],
+        ];
     }
 
 }
