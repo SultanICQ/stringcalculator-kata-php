@@ -14,18 +14,12 @@ class StringCalculatorTest extends TestCase
         parent::setUp();
     }
 
-    /**
-     * @test
-     */
-    public function i_can_instantiate_a_calculator() {
+    public function test_i_can_instantiate_a_calculator() {
         // Assert
         $this->assertIsObject($this->calc);
     }
 
-    /**
-     * @test
-     */
-    public function when_i_send_empty_arguments_calc_returns_zero_int() {
+    public function test_when_i_send_empty_arguments_calc_returns_zero_int() {
 
         $sum = $this->calc->Add("");
 
@@ -33,10 +27,7 @@ class StringCalculatorTest extends TestCase
         $this->assertSame(0, $sum);
     }
 
-    /**
-     * @test
-     */
-    public function when_i_send_a_string_with_the_number_one_calc_returns_the_same_number_as_int() {
+    public function test_when_i_send_a_string_with_the_number_one_calc_returns_the_same_number_as_int() {
 
         $sum = $this->calc->Add("1");
 
@@ -44,10 +35,7 @@ class StringCalculatorTest extends TestCase
         $this->assertSame( 1, $sum );
     }
 
-    /**
-     * @test
-     */
-    public function when_i_send_a_string_with_the_number_two_calc_returns_the_same_number_as_int() {
+    public function test_when_i_send_a_string_with_the_number_two_calc_returns_the_same_number_as_int() {
 
         $sum = $this->calc->Add("2");
 
