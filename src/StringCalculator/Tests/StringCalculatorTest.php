@@ -2,16 +2,35 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
+use StringCalculator\StringCalculatorClass;
 
 class StringCalculatorTest extends TestCase
 {
     /**
      * @test
      */
-    public function the_tests_can_be_run_and_classes_are_available_via_the_composer_autoloader()
-    {
-        if (!class_exists('StringCalculator\StringCalculatorClass')) {
-            $this->fail('Make sure you use the "phpunit.xml.dist" from this project as the configuration file for your PHPUnit test runner');
-        }
+    public function i_can_instantiate_a_calculator() {
+        // Arrange
+        $calc = new StringCalculatorClass();
+
+        // Act
+
+        // Assert
+        $this->assertIsObject( $calc );
     }
+
+    /**
+     * @test
+     */
+    public function when_i_send_empty_arguments_calc_returns_zero_int() {
+        // Arrange
+        $calc = new StringCalculatorClass();
+
+        // Act
+        $sum = $calc->Add("");
+
+        // Assert
+        $this->assertSame(0, $sum);
+    }
+
 }
