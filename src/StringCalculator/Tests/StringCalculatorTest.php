@@ -14,11 +14,6 @@ class StringCalculatorTest extends TestCase
         parent::setUp();
     }
 
-    public function test_i_can_instantiate_a_calculator() {
-        // Assert
-        $this->assertIsObject($this->calc);
-    }
-
     /**
      * @dataProvider single_number_provider
      * @param String $argument
@@ -40,11 +35,23 @@ class StringCalculatorTest extends TestCase
         ];
     }
 
-    public function test_when_i_send_numbers_one_and_two_with_comma_separator_calc_returns_three_as_int() {
+    /**
+     * @dataProvider couples_number_provider
+     */
+    public function test_when_i_send_couple_of_numbers_with_comma_separator_calc_returns_the_right_sum_as_int() {
 
         $sum = $this->calc->Add("1,2");
 
         $this->assertSame( 3, $sum );
+    }
+
+    public function couples_number_provider() {
+        return [
+            ["0,1", 1],
+            ["1,2", 3],
+            ["4,5", 9],
+            ["10,23", 33],
+        ];
     }
 
 }
