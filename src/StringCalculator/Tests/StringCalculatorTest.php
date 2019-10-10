@@ -30,7 +30,38 @@ class StringCalculatorTest extends TestCase
         $sum = $calc->Add("");
 
         // Assert
+        $this->assertIsInt($sum);
         $this->assertSame(0, $sum);
+    }
+
+    /**
+     * @test
+     */
+    public function when_i_send_a_string_with_the_number_one_calc_returns_the_same_number_as_int() {
+        // Arrange
+        $calc = new StringCalculatorClass();
+
+        // Act
+        $sum = $calc->Add("1");
+
+        // Assert
+        $this->assertIsInt( $sum );
+        $this->assertSame( 1, $sum );
+    }
+
+    /**
+     * @test
+     */
+    public function when_i_send_a_string_with_the_number_two_calc_returns_the_same_number_as_int() {
+        // Arrange
+        $calc = new StringCalculatorClass();
+
+        // Act
+        $sum = $calc->Add("2");
+
+        // Assert
+        $this->assertIsInt( $sum );
+        $this->assertSame( 2, $sum );
     }
 
 }
