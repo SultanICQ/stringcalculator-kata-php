@@ -40,4 +40,11 @@ class StringCalculatorTest extends TestCase
         ];
     }
 
+    public function test_when_i_send_numbers_one_and_two_with_comma_separator_calc_returns_three_as_int() {
+
+        $sum = $this->calc->Add("1,2");
+
+        $this->assertSame( 3, $sum );
+    }
+
 }
